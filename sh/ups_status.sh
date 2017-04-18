@@ -8,6 +8,11 @@ fi
 ups=$1
 upsc=`which upsc`
 
+if ! [ -e "$upsc"]; then
+  echo "upsc not found"
+  exit -1
+fi
+
 if [ $ups = ups.discovery ]; then
 
   echo -e "{\n\t\"data\":["
