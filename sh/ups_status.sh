@@ -25,7 +25,7 @@ else
 key=$2
 
 if [[ $key == ups.status ]]; then
-        state=`$upsc $ups $key 2>&1 | grep -v SSL`
+        state=`$upsc $ups $key 2>&1 | grep -v SSL  | awk '{print $1}'`
         case $state in
                 OL)             echo 1 ;; #'On line (mains is present)' ;;
                 OB)             echo 2 ;; #'On battery (mains is not present)' ;;
